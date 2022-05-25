@@ -53,7 +53,7 @@ public class GuessTheAnimalGame {
     private static void addNewAnimal(String newAnimal, Map<String, String> animals) {
         System.out.println("Какое животное ты загадал?");
         String randomValue = scanner.nextLine();
-        System.out.println("Чем <" + newAnimal + "> отличается от <" + randomValue + ">?");
+        System.out.println("Чем <" + randomValue + "> отличается от <" + newAnimal + ">?");
         String newValue = scanner.nextLine();
         animals.put(randomValue, newValue);
         System.out.println("Теперь я знаю таких животных --> " + animals);
