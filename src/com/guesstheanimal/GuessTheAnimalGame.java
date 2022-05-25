@@ -4,7 +4,6 @@ import java.security.SecureRandom;
 import java.util.*;
 
 public class GuessTheAnimalGame {
-
     static Scanner scanner = new Scanner(System.in);
     static Random generator = new SecureRandom();
 
@@ -12,7 +11,6 @@ public class GuessTheAnimalGame {
         Map<String, String> animals = new HashMap<>();
         animals.put("кит", "живет в океане");
         animals.put("кот", "живет на суше");
-
         startGame(animals);
     }
 
@@ -23,33 +21,40 @@ public class GuessTheAnimalGame {
         while (continueGame) {
 
             System.out.println("Загадай животное, а я попробую угадать...");
-            String userAnimal = scanner.nextLine();
             Object[] computerAnimal = animals.keySet().toArray();
             String randomValue = (String) computerAnimal[generator.nextInt(computerAnimal.length)];
-            System.out.println("Это животное " + animals.get(randomValue) + "? (да/нет)");
+            System.out.println("Это животное " + animals.get(randomValue.toLowerCase()) + "? (да/нет)");
             String userResponse = scanner.nextLine();
 
-            if (userResponse.equalsIgnoreCase("да")) {
-                System.out.println("Это животное '" + userAnimal + "' и оно " + animals.get(userAnimal.toLowerCase()));
-            } else {
-                addNewAnimal(userAnimal, animals, randomValue);
-            }
+            guessTheAnimal(animals, userResponse, randomValue);
 
             System.out.println("Хочешь продолжить игру?");
             String response = scanner.nextLine();
-
-            if (response.equalsIgnoreCase("да")) {
-                continueGame = true;
-            } else {
-                continueGame = false;
-            }
+            continueGame = response.equalsIgnoreCase("да");
         }
     }
 
-    private static void addNewAnimal(String newAnimal, Map<String, String> animals, String randomValue) {
+    private static void guessTheAnimal(Map<String, String> animals, String userResponse, String randomValue) {
+        if (userResponse.equalsIgnoreCase("да")) {
+            System.out.println("Это животное '" + randomValue + "'?");
+            String userResponse2 = scanner.nextLine();
+            if (userResponse2.equalsIgnoreCase("да")) {
+                System.out.println("Я победил!");
+            } else {
+                addNewAnimal(randomValue, animals);
+            }
+        } else {
+            addNewAnimal(randomValue, animals);
+        }
+
+    }
+
+    private static void addNewAnimal(String newAnimal, Map<String, String> animals) {
+        System.out.println("Какое животное ты загадал?");
+        String randomValue = scanner.nextLine();
         System.out.println("Чем <" + newAnimal + "> отличается от <" + randomValue + ">?");
         String newValue = scanner.nextLine();
-        animals.put(newAnimal, newValue);
+        animals.put(randomValue, newValue);
         System.out.println("Теперь я знаю таких животных --> " + animals);
 
     }
