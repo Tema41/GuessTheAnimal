@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="GuessTheAnimal:jar">
+    <output-path>$PROJECT_DIR$/../../../Games</output-path>
+    <root id="archive" name="GuessTheAnimal.jar">
+      <element id="module-output" name="GuessTheAnimal" />
+    </root>
+  </artifact>
+</component>
