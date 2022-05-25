@@ -28,13 +28,14 @@ public class GuessTheAnimalGame {
 
             guessTheAnimal(animals, userResponse, randomValue);
 
-            System.out.println("Хочешь продолжить игру?");
+            System.out.println("Хочешь продолжить игру? (да/нет)");
             String response = scanner.nextLine();
             continueGame = response.equalsIgnoreCase("да");
         }
     }
 
     private static void guessTheAnimal(Map<String, String> animals, String userResponse, String randomValue) {
+
         if (userResponse.equalsIgnoreCase("да")) {
             System.out.println("Это животное '" + randomValue + "'?");
             String userResponse2 = scanner.nextLine();
