@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Play {
     static Scanner scanner = new Scanner(System.in);
     static Random generator = new SecureRandom();
+
     static void startGame(Map<String, String> animals) {
         boolean continueGame = true;
         while (continueGame) {
@@ -44,6 +45,5 @@ public class Play {
         String newValue = scanner.nextLine();
         animals.put(randomValue, newValue);
         System.out.println("Теперь я знаю таких животных --> " + animals);
-
     }
 }

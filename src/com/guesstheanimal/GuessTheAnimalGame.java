@@ -1,6 +1,5 @@
 package com.guesstheanimal;
 
-import java.security.SecureRandom;
 import java.util.*;
 
 public class GuessTheAnimalGame {
