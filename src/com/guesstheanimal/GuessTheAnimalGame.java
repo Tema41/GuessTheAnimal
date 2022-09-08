@@ -4,20 +4,13 @@ import java.security.SecureRandom;
 import java.util.*;
 
 public class GuessTheAnimalGame {
-    static Scanner scanner = new Scanner(System.in);
-    static Random generator = new SecureRandom();
-
     public static void main(String[] args) {
         Map<String, String> animals = new HashMap<>();
         animals.put("кит", "живет в океане");
         animals.put("кот", "живет на суше");
         Play.startGame(animals);
     }
-
-
-
 }
-
 
 /**
  * Угадай животное
